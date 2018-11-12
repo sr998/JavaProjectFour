@@ -4,26 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Part {
+
     private String fullPart;
     private String separatedPart;
 
-    public static ArrayList<String> splitStringEqually(String text, int size)
-    {
-        ArrayList<String> al = new ArrayList<>();
-        if(text.length() % size == 0)
-        {
-            while(text.length() > 0) {
-                String nextChunk = text.substring(0,size);
-                // store the chunk.
+    public static ArrayList<String> splitEqually(String text, int size) {
+        ArrayList<String> ret = new ArrayList<>((text.length() + size - 1) / size);
 
-                text = text.substring(size,text.length());
-                al.add(text);
-                return al;
-            }
-
+        for (int start = 0; start < text.length(); start += size) {
+            ret.add(text.substring(start, Math.min(text.length(), start + size)));
         }
-            //throw new IllegalArgumentException();
-        return al;
+        return ret;
     }
 
     public String getFullPart() {
