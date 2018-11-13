@@ -14,8 +14,9 @@ public class Conductor extends Musician {
     public Conductor() {
     }
 
-    public ArrayList<String> makeParts(int num, String fullpart)
+    public ArrayList<String> makeParts(int num, String fullpart,ArrayList<Musician> mc)
     {
+
         if (fullpart.length()%2==0) {
             num = fullpart.length() / num;
 
@@ -26,6 +27,7 @@ public class Conductor extends Musician {
         for (int i = 0; i < al.size(); i++) {
             ++j;
             System.out.println("Musician who's id is "+j+" Plays part: "+al.get(i));
+            mc.get(i).setPart(al.get(i));
         }
         return al;
     }
