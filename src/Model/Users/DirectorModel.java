@@ -20,7 +20,8 @@ public class DirectorModel {
         System.out.println("\nPlease select option:" +
                 "\n*hire_m* - Hire new musician;" +
                 "\n*hire_c* - Hire new conductor" +
-                "\n*concert* - Start a concert");
+                "\n*concert* - Start a concert" +
+                "\n*exit* - Exit from menu");
         Scanner in = new Scanner(System.in);
         String option = in.nextLine();
         switch (option)
@@ -46,11 +47,15 @@ public class DirectorModel {
                 System.out.println("Great, now the second name : ");
                 String surname = in.nextLine();
                 int salary = DirectorController.inputSalary();
-                mc.add(dc.hireMusician(name,surname,salary));
+                cd.add(dc.hireConductor(name,surname,salary));
                 System.out.println("Great,you added new worker ");
-                SearchElem.searchMusician(name,mc);
-
+                SearchElem.searchConductor(name,cd);
+                break;
             }
+            case "concert":{
+                System.out.println("");
+            }
+
 
         }
     }
